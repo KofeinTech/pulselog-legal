@@ -1,0 +1,167 @@
+/* PulseLog legal + support pages. Palette from design/pulselog/tokens.css (D1 "Contour").
+   No external fonts, scripts or trackers. Sizes in rem so browser text size settings scale everything. */
+
+:root {
+  color-scheme: light dark;
+  --ground: #f5f0e3;   /* bone */
+  --paper:  #fdfaf3;   /* card */
+  --ink:    #0b3627;   /* pine */
+  --ink-2:  #445f50;   /* pine-2 */
+  --line:   #bbc1ac;   /* rule */
+  --pen:    #f2b036;   /* saffron: strokes only, never text on bone */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #0a1610; /* night */
+    --paper:  #14211b; /* night-card */
+    --ink:    #efe7d6; /* lamp */
+    --ink-2:  #b2b39e; /* lamp-2 */
+    --line:   #2f4238; /* rule-night */
+    --pen:    #f3b94c; /* saffron-night */
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  font-size: 112.5%; /* 18px at default browser size */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+.wrap {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+header.site {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  font-family: ui-serif, "New York", Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0.35rem 0; /* 44pt-ish touch target with line-height */
+  color: var(--ink-2);
+  text-decoration: none;
+}
+
+nav a[aria-current="page"] {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--pen);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.3em;
+}
+
+nav.lang { margin-top: 0.75rem; }
+nav.lang a { font-size: 0.9rem; }
+
+main { padding-top: 1.5rem; }
+
+h1, h2, h3 { line-height: 1.25; }
+
+h1 {
+  font-family: ui-serif, "New York", Georgia, serif;
+  font-weight: 500;
+  font-size: 2rem;
+  letter-spacing: -0.01em;
+  margin: 0.5rem 0 0.25rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin: 2.25rem 0 0.5rem;
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin: 1.75rem 0 0.35rem;
+}
+
+p, ul, ol { margin: 0 0 1rem; }
+li { margin-bottom: 0.4rem; }
+
+.meta { color: var(--ink-2); margin-bottom: 1.5rem; }
+
+.lead { font-size: 1.1rem; }
+
+a { color: var(--ink); text-underline-offset: 0.2em; }
+a:hover { text-decoration-color: var(--pen); }
+a:focus-visible { outline: 3px solid var(--pen); outline-offset: 2px; border-radius: 2px; }
+
+.note {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--pen);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+.note p:last-child { margin-bottom: 0; }
+
+.langs {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: grid;
+  gap: 0.75rem;
+}
+.langs a {
+  display: block;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.langs a:hover { border-color: var(--pen); }
+.langs .links { display: block; margin-top: 0.25rem; font-weight: 400; font-size: 0.95rem; color: var(--ink-2); }
+
+footer.site {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink-2);
+  font-size: 0.9rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a, .langs a { transition: border-color 0.2s, text-decoration-color 0.2s; }
+}
